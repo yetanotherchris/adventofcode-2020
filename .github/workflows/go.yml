@@ -30,4 +30,5 @@ jobs:
         fi
 
     - name: Build
-      run: go run -v ./src/day1/main.go
+      run: | 
+        pushd ./src/day1/ && go run -v main.go && popd
