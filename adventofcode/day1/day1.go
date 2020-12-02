@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-func main() {
-	fmt.Println("Advent of Code - Day 1")
+// Functions must start with an uppercase letter to be exported
+func Run() string {
 
-	lines := readFileToArray("input.txt")
+	lines := readFileToArray("day1/input.txt")
 	slice := convertToIntArray(lines)
 
 	for i := 0; i < len(slice); i++ {
@@ -18,16 +18,17 @@ func main() {
 
 		var hasMatch, value1, value2, multipliedSum = checkBeforeCurrentItem(i, currentItem, slice)
 		if hasMatch {
-			fmt.Printf("It's %d * %d = %d\n", value1, value2, multipliedSum)
-			return
+			return fmt.Sprintf("It's %d * %d = %d", value1, value2, multipliedSum)
 		}
 
 		hasMatch, value1, value2, multipliedSum = checkAfterCurrentItem(i, currentItem, slice)
 		if hasMatch {
-			fmt.Printf("It's %d * %d = %d\n", value1, value2, multipliedSum)
-			return
+			return fmt.Sprintf("It's %d * %d = %d", value1, value2, multipliedSum)
+
 		}
 	}
+
+	return "Couldn't find the answer"
 }
 
 func readFileToArray(filename string) []string {

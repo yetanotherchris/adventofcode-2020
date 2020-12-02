@@ -31,4 +31,6 @@ jobs:
 
     - name: Build
       run: | 
-        pushd ./src/day1/ && go run -v main.go && popd
+        pushd ./adventofcode/
+        go run . day1
+        popd
