@@ -15,4 +15,6 @@ In the above example, 2 passwords are valid. The middle password, cdefg,
 is not; it contains no instances of b, but needs at least 1. The first and third 
 passwords are valid: they contain one a or nine c, both within the limits of 
 their respective policies.
+
+How many passwords are valid according to their policies?
 ```
