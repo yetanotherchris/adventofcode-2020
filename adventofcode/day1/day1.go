@@ -2,15 +2,15 @@ package day1
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strconv"
 	"strings"
+	"adventofcode/input"
 )
 
 // Functions must start with an uppercase letter to be exported
 func Run() string {
 
-	lines := readFileToArray("day1/input.txt")
+	lines := input.ReadFileToArray("day1/input.txt")
 	slice := convertToIntArray(lines)
 
 	for i := 0; i < len(slice); i++ {
@@ -31,21 +31,8 @@ func Run() string {
 	return "Couldn't find the answer"
 }
 
-func readFileToArray(filename string) []string {
-	data, err := ioutil.ReadFile(filename)
-	if err != nil {
-		fmt.Println("Error reading file: ", err)
-		return nil
-	}
-
-	allText := string(data)
-	lines := strings.Split(allText, "\n")
-
-	return lines
-}
-
 func convertToIntArray(lines []string) []int {
-	slice := make([]int, len(lines))
+	slice := make([]int, 0)
 	for _, item := range lines {
 		cleanedLine := strings.Replace(item, "\r", "", 1)
 		value, _ := strconv.Atoi(cleanedLine)
